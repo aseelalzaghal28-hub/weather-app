@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>الطقس الآن | تطبيق حالة الطقس</title>
+<meta name="description" content="تطبيق ويب لعرض حالة الطقس الحالية وتوقعات الأيام القادمة لأي مدينة في العالم.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="clear">
+<main class="app">
+  <header class="top">
+    <h1>الطقس الآن</h1>
+    <div class="units" role="group" aria-label="وحدة الحرارة">
+      <button type="button" id="uC" aria-pressed="true">°م</button>
+      <button type="button" id="uF" aria-pressed="false">°ف</button>
+    </div>
+  </header>
+
+  <form id="searchForm" role="search">
+    <label for="q" class="sr">اسم المدينة</label>
+    <input id="q" type="search" placeholder="ابحث عن مدينة، مثل: عمّان" autocomplete="off">
+    <button type="submit" class="primary">بحث</button>
+    <button type="button" id="geoBtn" class="ghost">موقعي</button>
+  </form>
+
+  <div id="alts" class="alts" hidden></div>
+  <div id="status" role="status" aria-live="polite"></div>
+
+  <section id="current" class="current" hidden>
+    <div>
+      <h2 id="city"></h2>
+      <p id="country" class="sub"></p>
+      <p id="desc" class="desc"></p>
+    </div>
+    <div class="temp-wrap">
+      <span id="icon" class="icon" aria-hidden="true"></span>
+      <span id="temp" class="temp"></span>
+    </div>
+    <dl class="details">
+      <div><dt>الإحساس</dt><dd id="feels"></dd></div>
+      <div><dt>الرطوبة</dt><dd id="hum"></dd></div>
+      <div><dt>الرياح</dt><dd id="wind"></dd></div>
+    </dl>
+  </section>
+
+  <section id="daily" class="daily" hidden aria-label="توقعات الأيام القادمة">
+    <h2 class="sr">توقعات الأيام القادمة</h2>
+    <ul id="days"></ul>
+  </section>
+
+  <footer>البيانات من Open-Meteo.com</footer>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
